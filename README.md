@@ -11,6 +11,9 @@
 - [数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/array/array.go)
 - [lru缓存算法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/lru_cache/lru_cache.go)
 - [链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlistt/signle_linkedlist.go)
+- 栈
+    + [*链表结构*栈](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go)
+    + [*数组结构*栈](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/array_stack.go)
 
 #### 时间复杂度
 
