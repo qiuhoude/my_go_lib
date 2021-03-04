@@ -1,8 +1,6 @@
 package ac
 
-import (
-	"github.com/qiuhoude/go-web/algorithm/datastructures/queue"
-)
+import "my_go_lib/algorithm/datastructures/queue"
 
 // 节点
 type acNode struct {

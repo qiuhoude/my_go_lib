@@ -1,6 +1,6 @@
 package queue
 
-import "github.com/qiuhoude/go-web/algorithm/datastructures/minheap"
+import "my_go_lib/algorithm/datastructures/minheap"
 
 // 优先级队列
 type PriorityQueue struct {

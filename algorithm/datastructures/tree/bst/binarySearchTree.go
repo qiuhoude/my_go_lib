@@ -3,7 +3,7 @@ package bst
 import (
 	"container/list"
 	"fmt"
-	"github.com/qiuhoude/go-web/algorithm/datastructures/stack"
+	"my_go_lib/algorithm/datastructures/stack"
 	"strings"
 )
 
