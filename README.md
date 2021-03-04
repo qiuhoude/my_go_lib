@@ -28,17 +28,18 @@
 
 - [数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/array/array.go)
 - [lru缓存算法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/lru_cache/lru_cache.go)
-- [链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlistt/signle_linkedlist.go)
+- [链表][signle_linkedlist]
+    + 问题 :
+    + 判断单链表是否有环
+    + 反转链表
+    + 找到链表的中间节点
+    + 两个有序单链表合并
+    + 删除倒数第N个节点
+    + 答案在 [链表结构][signle_linkedlist]文件中
 - 栈
     + [**链表结构**栈][stack]
     + [**数组结构**栈](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/array_stack.go)
-    + 问题 :
-        + 反转链表
-        + 判断单链表是否有环
-        + 找到链表的中间节点
-        + 两个有序单链表合并
-        + 删除倒数第N个节点
-        + 答案在 [链表结构][stack]文件中
+    
 - 队列
     + [数组队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/array_queue.go)
     + [链表队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/linked_queue.go)
@@ -49,6 +50,6 @@
 
 
 
-
+[signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlistt/signle_linkedlist.go
 [stack]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go
 [priority_queue]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/priority_queue.go
