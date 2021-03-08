@@ -7,6 +7,10 @@ import (
 )
 
 // 环形数组队列
+// 主要就在 空 和 满 判断的公式上,
+// 满判断 (q.tail+1)%q.capacity == q.head
+// 空判断 q.head == q.tail
+// 通过上面判断会浪费一个空间
 type CircularQueue struct {
 	data                 []interface{}
 	head, tail, capacity int
@@ -71,7 +75,7 @@ func (q *CircularQueue) String() string {
 	return sb.String()
 }
 
-// 动态扩容和缩容
+// Poll 和 Offer 是一对带自动动态扩容和缩容的方法
 func (q *CircularQueue) Poll() interface{} {
 	if q.IsEmpty() {
 		return nil

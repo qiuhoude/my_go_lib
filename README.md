@@ -1,9 +1,10 @@
 # golang学习库
 
+
 ### 数据结构和算法
-主要通过 极客时间-数据结构与算法之美 和 慕课网的算法课学习的算法知识, 自己整理出golang版本的基础的算法和数据结构;
-基本上每个方法都是单元测试;
-里面也有些自己做的leetcode的题目和课程中题目,解答思路都在代码的注释中
+主要通过 极客时间-数据结构与算法之美 和 慕课网的算法课学习的算法知识, 自己整理出golang版本的基础的算法和数据结构;  
+基本上每个方法都是单元测试;  
+里面也有些自己做的leetcode的题目和课程中题目,解答思路都在代码的注释中  
 
 #### 时间复杂度
 
@@ -29,13 +30,13 @@
 - [数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/array/array.go)
 - [lru缓存算法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/lru_cache/lru_cache.go)
 - [链表][signle_linkedlist]
-    + 问题 :
-    + 判断单链表是否有环
-    + 反转链表
-    + 找到链表的中间节点
-    + 两个有序单链表合并
-    + 删除倒数第N个节点
-    + 答案在 [链表结构][signle_linkedlist]文件中
+    + 问题
+        + 判断单链表是否有环
+        + 反转链表
+        + 找到链表的中间节点
+        + 两个有序单链表合并
+        + 删除倒数第N个节点
+        + 答案在 [链表结构][signle_linkedlist]文件中
 - 栈
     + [**链表结构**栈][stack]
     + [**数组结构**栈](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/array_stack.go)
@@ -44,12 +45,18 @@
     + [数组队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/array_queue.go)
     + [链表队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/linked_queue.go)
     + [循环队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/circular_queue.go)
-    + [优先级队列][priority_queue]
+    + [优先级队列][priority_queue] 使用最小堆实现
+- 排序
+    + [冒泡排序][sort_test] (两两比较数组中的值,不满足就换位置)
+    + [插入排序][sort_test] (分区思想,将未排序的区域第一个值插入到已排序区域中)
+    + [选择排序][sort_test] (分区思想,每次在未排序区域中找到最小值,放到排序区域的最后)
+    + [归并排序][sort_test] (分治思想,把数组从中间分成前后两部分，然后对前后两部分分别排序，再将排好序的两部分合并在一起，这样整个数组就都有序了)
+    + [快速排序][sort_test]
+    + [如何在 O(n) 的时间复杂度内查找一个无序数组中的第 K 大元素?][sort_test]
+    
 
 
-
-
-
-[signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlistt/signle_linkedlist.go
+[signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlist/signle_linkedlist.go
 [stack]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go
 [priority_queue]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/priority_queue.go
+[sort_test]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/sort_test.go

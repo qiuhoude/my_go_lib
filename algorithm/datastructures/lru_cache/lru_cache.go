@@ -1,10 +1,17 @@
 package lru_cache
 
 const (
+	// 判断主机是否是64位机器
+	// ^uint(0) 32位机器 0XFFFFFFFF , 64位机器 0xFFFFFFFFFFFFFFFF
+	// uint64(^uint(0)) 强转成 uint64, 看是否与 ^uint64(0)相等
 	hostbit = uint64(^uint(0)) == ^uint64(0)
 	LENGTH  = 128
 )
 
+/*
+和 java 中的 LinkedHashMap 思路基本一致, 都有hash表 和 链表 两种结构,链表保证顺序,hash表保证效率O(1)级别;
+添加或获取节点时,将操作的节点移动到链表的尾部(也可以是头部) (操作的节点就时最近使用的节点), 超过容量就移除头部节点(最早使用的那个节点)
+*/
 type lruNode struct {
 	prev *lruNode
 	next *lruNode
@@ -141,8 +148,8 @@ func (this *LRUCache) moveToTail(node *lruNode) {
 }
 
 func hash(key int) int {
-	if hostbit {
+	if hostbit { // 64位机器
 		return (key ^ (key >> 32)) & (LENGTH - 1)
 	}
-	return (key ^ (key >> 16)) & (LENGTH - 1)
+	return (key ^ (key >> 16)) & (LENGTH - 1) // 与java中HashMap#hash() 基本一致
 }

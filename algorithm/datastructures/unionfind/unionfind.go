@@ -51,7 +51,7 @@ func (u *UnionFind) UnionElements(p, q int) error {
 	if err != nil {
 		return err
 	}
-	qRoot, err := u.find(p)
+	qRoot, err := u.find(q)
 	if err != nil {
 		return err
 	}
@@ -78,7 +78,7 @@ func (u *UnionFind) IsConnected(p, q int) bool {
 	if err != nil {
 		return false
 	}
-	qRoot, err := u.find(p)
+	qRoot, err := u.find(q)
 	if err != nil {
 		return false
 	}

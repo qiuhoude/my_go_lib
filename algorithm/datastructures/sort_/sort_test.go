@@ -244,15 +244,18 @@ func quickSort(arr []int, p, r int) {
 	if p >= r {
 		return
 	}
-	q := partition(arr, p, r) // 获取区服点
+	q := partition(arr, p, r) // 获取分区点
 	quickSort(arr, p, q-1)
 	quickSort(arr, q+1, r)
 }
 
 /*
 进行分区
-思路: 也可以根据插入排序或选择排序的分区思路,把原区域分为
-[0:i] 比pivot小的值, [i+1:end] 比pivot大的值两个区域
+思路: 也可以根据插入排序或选择排序的分区思路,
+分区
+1. [0:i] 比pivot小的值;
+2. [i+1:end] 比pivot大的值两个区域
+
 步骤: 1. 找arr[end] 为 pivot值
 	 2. 开始遍历每个元素,只要 <pivot 就放到左边区域的尾部进行替换,左边区域尾部的下标+1
 	 3. 最后 end 与 左边区域尾部下标值进行交换,
@@ -286,19 +289,30 @@ func TestQuickSort(t *testing.T) {
 
 }
 
-// 如何在 O(n) 的时间复杂度内查找一个无序数组中的第 K 大元素
+/*
+如何在 O(n) 的时间复杂度内查找一个无序数组中的第 K 大元素?
+如果是排序再找,排序是O(nlogn)的时间复杂度
+
+思路:
+如果将数组假定为由小到大,找第k大就是找 kmin = len(arr)-k+1 下标的元素,
+只需要找到分区下标是 p+1 = kmin 就可以
+
+第1次分区查找 遍历 n次, 第2次遍历 n/2 ...
+总遍历次数 n + n/2 + n/4 + n/8 ...+1 = 2n-1 (等比数列求和)
+时间复杂度是 O(n)
+*/
 func findMaxK(arr []int, k int) int {
 	n := len(arr)
 	if n < 1 || n < k {
 		return -1
 	}
-	k = n - k + 1 // 因为 partition 是左小右大的正序, 找第K大 等于 找第 n-k+1 小的元素
+	kmin := n - k + 1 // 找第K大 等于 找第 n-k+1 下标的元素
 	r := n - 1
 	p := partition(arr, 0, r)
 	for j := 0; j < n; j++ { // 最多查找 n 次,防止死循环
-		if p+1 == k {
+		if p+1 == kmin {
 			return p
-		} else if k > p+1 { // 继续右边找
+		} else if kmin > p+1 { // 继续右边找
 			p = partition(arr, p+1, r)
 		} else { // 继续左边找
 			p = partition(arr, 0, p-1)
@@ -309,7 +323,7 @@ func findMaxK(arr []int, k int) int {
 
 func TestFindMaxK(t *testing.T) {
 	arr := []int{4, 5, 6, 3, 2, 1, 8, 7, 1, 1}
-	k := 1
+	k := len(arr)
 	i := findMaxK(arr, k)
 	if i != -1 {
 		t.Log(arr[i])
