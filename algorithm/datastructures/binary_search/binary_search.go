@@ -194,7 +194,7 @@ func BSearchFirstGeVal(arr []int, val int) int {
 	return -1
 }
 
-// 查找第一个大于 给定值的下标
+// 查找第一个大于给定值的元素
 func BSearchFirstGVal(arr []int, val int) int {
 	n := len(arr)
 	if n < 1 {

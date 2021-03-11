@@ -40,7 +40,6 @@
 - 栈
     + [**链表结构**栈][stack]
     + [**数组结构**栈](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/array_stack.go)
-    
 - 队列
     + [数组队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/array_queue.go)
     + [链表队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/linked_queue.go)
@@ -53,6 +52,17 @@
     + [归并排序][sort_test] (分治思想,把数组从中间分成前后两部分，然后对前后两部分分别排序，再将排好序的两部分合并在一起，这样整个数组就都有序了)
     + [快速排序][sort_test]
     + [如何在 O(n) 的时间复杂度内查找一个无序数组中的第 K 大元素?][sort_test]
+- [二分查找][binary_search] 似于数学中的夹逼定理,两边不断逼近某个值
+    + 二分法求平方根
+    + 查找第一个值等于给定值的元素(有重复元素的切片)
+    + 查找最后一个值等于给定值的元素
+    + 查找第一个大于等于给定值的元素
+    + 查找第一个大于给定值的元素
+    + 查找最后一个小于等于给定值的元素
+- 权重随机算法(游戏中很常用)
+    + 权重随机普通算法 只要随机的数量不多可以进行 O(n)级别
+    + 优化版: 使用计数排序,后通过二分查找 O(logn)级别
+    
     
 
 
@@ -60,3 +70,5 @@
 [stack]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go
 [priority_queue]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/priority_queue.go
 [sort_test]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/sort_test.go
+[binary_search]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/binary_search/binary_search.go
+[weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randwighted/randwighted.go
