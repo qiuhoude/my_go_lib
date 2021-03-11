@@ -59,7 +59,7 @@
     + 查找第一个大于等于给定值的元素
     + 查找第一个大于给定值的元素
     + 查找最后一个小于等于给定值的元素
-- 权重随机算法(游戏中很常用)
+- [权重随机算法(游戏中很常用)][weighted]
     + 权重随机普通算法 只要随机的数量不多可以进行 O(n)级别
     + 优化版: 使用计数排序,后通过二分查找 O(logn)级别
     
@@ -71,4 +71,4 @@
 [priority_queue]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/priority_queue.go
 [sort_test]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/sort_test.go
 [binary_search]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/binary_search/binary_search.go
-[weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randwighted/randwighted.go
+[weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randweighted/randweighted.go
