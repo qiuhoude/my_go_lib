@@ -24,6 +24,21 @@ func TestWeightedRandom1(t *testing.T) {
 		t.Log(weight())
 	}
 
+	//m := make(map[int]int)
+	//for i := 0; i < 1000; i++ {
+	//	m[i] = i
+	//}
+	//go func() {
+	//	for i := 0; i < 1000; i++ {
+	//		 m[i] = 1
+	//	}
+	//}()
+	//go func() {
+	//	for i := 0; i < 1000; i++ {
+	//		m[i] = 0
+	//	}
+	//}()
+
 }
 
 func BenchmarkWeightedRandom1(b *testing.B) {

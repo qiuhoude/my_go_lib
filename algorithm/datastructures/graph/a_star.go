@@ -2,7 +2,7 @@ package graph
 
 import (
 	"fmt"
-	"github.com/qiuhoude/go-web/algorithm/datastructures/queue"
+	"my_go_lib/algorithm/datastructures/queue"
 )
 
 /*
