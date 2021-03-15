@@ -39,7 +39,7 @@ func MarchSubstr(mainStr, pattern []rune) int {
 		} else if mCnt == 0 { // 没有匹配往后移一格
 			mp++
 		} else {
-			// 移动位数 = 已匹配的字符数 - 对应的部分匹配值
+			// 移动位数 = 已匹配的字符数 - 对应的部分匹配值(最后一个匹配字符)
 			mp += mCnt - preTab[mCnt-1]
 		}
 	}
@@ -53,7 +53,7 @@ func prefixTable(s []rune) []int {
 	table[0] = 0
 	for i := 1; i < sLen; i++ {
 		// 表示 [0,i]的子串 中最长公共前后缀的的长度
-		table[i] = findMaxCommonPreSufNum(s[:i+1])
+		table[i] = findMaxCommonPreSumNum(s[:i+1])
 		//fmt.Printf("%s=%d\n", string(s[:i+1]), table[i])
 	}
 	return table
@@ -91,9 +91,9 @@ func prefixTable2(s []rune) []int {
 }
 
 // 查找前缀与后缀的共有最大长度
-func findMaxCommonPreSufNum(s []rune) int {
+func findMaxCommonPreSumNum(s []rune) int {
 	// 此处的思路,每次从最长的进行比较,
-	// 可以通过动态规划, 从最短的开始比较进行递推
+	// 从最短的开始比较进行递推
 	length := len(s)
 	maxLen := length - 1
 	for maxLen > 0 {
