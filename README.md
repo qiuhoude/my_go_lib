@@ -65,6 +65,18 @@
     + 优化版: 使用计数排序,后通过二分查找,时间复杂度降到O(logn)级别
     + 优化版2: 使用 Alias method 将时间复杂度降到 O(1)级别, 应用于权重项比较多的情况
 - [游戏中排行榜实现][game_rank]
+- [跳表sikplist] 搜索是O(logn)级别的,查询很快的一个结构,用处很多,比如时间轮上挂着的链表可以替换成跳表
+- 字符串相关
+    + 单串匹配
+        + [kmp字符串匹配][kmp]主要参考的阮一峰教程的写法 <http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html>
+        + [bm字符串匹配][bm]
+    + 多串匹配
+        + [trie前缀数][trie] 可以用于游戏中按名字前缀查找对应玩家,代码中就是用的此例子, gin的路由存储用这个结构,还有很多云盘的目录结构也是用的这个
+        + [ac自动机][aho_corasick] 可以用于屏蔽替换
+- 树
+    + [二分搜索树][bst] 基础二叉数,有递归遍历和非递归遍历的方式,遍历可分为前中后3种遍历方式
+    + [分段搜索树][segmentTree] 分段维护某个数据, 比如有个数组我要快速得出中间某一段的 sum值 或 max值 或 min值就可以该结构
+- [并查询集][unionfind] 主要用查询某个元素属于哪个集合,合并两个集合, 比如 可以判断迷宫中哪些点是否有连接
     
 
 
@@ -75,3 +87,11 @@
 [binary_search]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/binary_search/binary_search.go
 [weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randweighted/randweighted.go
 [game_rank]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/game_rank.go
+[sikplist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sikplist/sikplist.go
+[kmp]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/kmp/kmp.go
+[bm]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/bm/bm.go
+[trie]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/trie/trie.go
+[aho_corasick]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/ac/aho_corasick.go
+[bst]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/bst/binarySearchTree.go
+[segmentTree]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/segmenttree/segmentTree.go
+[unionfind]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/unionfind/unionfind.go
