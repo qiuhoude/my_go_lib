@@ -65,7 +65,7 @@
     + 优化版: 使用计数排序,后通过二分查找,时间复杂度降到O(logn)级别
     + 优化版2: 使用 Alias method 将时间复杂度降到 O(1)级别, 应用于权重项比较多的情况
 - [游戏中排行榜实现][game_rank]
-- [跳表sikplist] 搜索是O(logn)级别的,查询很快的一个结构,用处很多,比如时间轮上挂着的链表可以替换成跳表
+- [跳表sikplist][sikplist] 搜索是O(logn)级别的,查询很快的一个结构,用处很多,比如时间轮上挂着的链表可以替换成跳表
 - 字符串相关
     + 单串匹配
         + [kmp字符串匹配][kmp]主要参考的阮一峰教程的写法 <http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html>
