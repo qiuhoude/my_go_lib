@@ -64,7 +64,7 @@
     + 权重随机普通算法 只要随机的数量不多可以进行 O(n)级别
     + 优化版: 使用计数排序,后通过二分查找,时间复杂度降到O(logn)级别
     + 优化版2: 使用 Alias method 将时间复杂度降到 O(1)级别, 应用于权重项比较多的情况
-
+- [游戏中排行榜实现][game_rank]
     
 
 
@@ -74,3 +74,4 @@
 [sort_test]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/sort_test.go
 [binary_search]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/binary_search/binary_search.go
 [weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randweighted/randweighted.go
+[game_rank]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/game_rank.go

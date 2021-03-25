@@ -1,12 +1,13 @@
 package sort_
 
 /*
+
+参照 知乎 https://zhuanlan.zhihu.com/p/268809846
+
 游戏排行榜 如果只显示前 N 的玩家其实就是top N的问题
 需求: 排行榜需要实时变动,每次获取需要自己的名次
 思路:
-1. 使用 数组 + map<playerId,数组index>,这样可以通过玩家id快速定位index己的index位置
-2. 链表 + map , 这种时候排行榜人员变动较大的时候使用
-
+使用 数组 + map<playerId,数组index>,这样可以通过玩家id快速定位index己的index位置
 玩家数据改变时:
 在榜中
 	新值 = 旧值 不变
@@ -17,6 +18,10 @@ package sort_
 		比较最后一名,大于最后一名才能入榜
 	没有满
 		添加到最后进行上浮
+
+存在的问题:
+榜上的玩家积分下降到比榜外的第一名分数还低时,会出现上榜玩家的积分还比榜外的玩家积分低
+解决: 1.当降到比最后一名时将该玩家提出排行榜
 */
 
 // 玩家id
@@ -65,7 +70,6 @@ func (g *GameRankArr) SetPlayerScore(player IRankItem, newScore int) bool {
 			return true
 		} else if newScore < oldVal {
 			g.siftDown(index)
-
 			return true
 		} else {
 			// 不变无操作
@@ -77,6 +81,9 @@ func (g *GameRankArr) SetPlayerScore(player IRankItem, newScore int) bool {
 			// 是否能入榜
 			if g.rankList[g.curSize-1].GetScore() < newScore {
 				// 放到尾部进行上浮
+				oldPlayer := g.rankList[g.curSize-1]
+				delete(g.rankMap, oldPlayer.GetPlayerId())
+				g.rankMap[player.GetPlayerId()] = g.curSize - 1
 				g.rankList[g.curSize-1] = player
 				g.siftUp(g.curSize - 1)
 				return true

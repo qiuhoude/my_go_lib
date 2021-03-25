@@ -40,7 +40,7 @@ func (p *PowerRankItem) String() string {
 func buildRankItem(r *rand.Rand, cnt int) []IRankItem {
 	var items []IRankItem
 	for i := 0; i < cnt; i++ {
-		power := r.Intn(cnt * 6)
+		power := r.Intn(cnt)
 		item := NewPowerRankItem(PlayerId(i), "name_"+strconv.Itoa(i), power)
 		items = append(items, item)
 
@@ -50,33 +50,37 @@ func buildRankItem(r *rand.Rand, cnt int) []IRankItem {
 
 func TestGameRankArr(t *testing.T) {
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
-	sz := 5
+	sz := 1000
 	rank := NewGameRankArr(sz)
-	items := buildRankItem(r, sz*3)
+	items := buildRankItem(r, sz)
 	// add
 	for i := range items {
-		fmt.Println("add", items[i])
+		//fmt.Println("add", items[i])
 		rank.SetPlayerScore(items[i], items[i].GetScore())
-		printRank(rank)
+
+		//printRank(rank)
 	}
 	// change
-	for i := 0; i < sz*4; i++ {
-		np := r.Intn(sz * 6)
+	for i := 0; i < sz; i++ {
+		np := r.Intn(sz)
 		item := items[r.Intn(len(items))]
 		rank.SetPlayerScore(item, np)
-		fmt.Printf("change %v power %v\n", item, np)
-		printRank(rank)
+
+		//fmt.Printf("change %v power %v\n", item, np)
+		//printRank(rank)
 	}
 	sort.Slice(items, func(i, j int) bool {
 		return items[i].GetScore() > items[j].GetScore()
 	})
-	//list := rank.GetRankList()
-	fmt.Println()
-	printRank(rank)
-	fmt.Println(items)
-	//if !equalSlicePowerRankItem(items[0:sz], list) {
-	//	t.Error("不一致")
-	//}
+	list := rank.GetRankList()
+
+	//fmt.Println()
+	//printRank(rank)
+	//fmt.Println(items)
+
+	if !equalSlicePowerRankItem(items[0:sz], list) {
+		t.Error("不一致")
+	}
 
 }
 func equalSlicePowerRankItem(a []IRankItem, b []IRankItem) bool {
@@ -84,17 +88,19 @@ func equalSlicePowerRankItem(a []IRankItem, b []IRankItem) bool {
 		return false
 	}
 	for i := 0; i < len(a); i++ {
-		if a[i].GetPlayerId() != b[i].GetPlayerId() {
+		if a[i].GetScore() != b[i].GetScore() {
 			return false
 		}
 	}
 	return true
 }
 
-func printRank(rank IGameRank) {
+func printRank(rank *GameRankArr) {
 	for _, v := range rank.GetRankList() {
 		fmt.Println(v)
 	}
+
+	fmt.Println("mapSize", len(rank.rankMap))
 	fmt.Println("--------------------------")
 
 }
