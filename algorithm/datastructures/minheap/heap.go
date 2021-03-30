@@ -39,7 +39,7 @@ func (h *Heap) Len() int {
 
 func (h *Heap) Poll() interface{} {
 	//1. 取出队头元素
-	//2. 将对尾元素,移到顶部
+	//2. 将堆尾元素,移到顶部
 	//3. 移除尾部
 	//4. 对头部下沉
 	if h.Len() == 0 {
@@ -47,6 +47,7 @@ func (h *Heap) Poll() interface{} {
 	}
 	ret := h.Peek()
 	h.swap(0, h.Len()-1)
+	h.data[h.Len()-1] = nil // 置空避免内存泄漏
 	h.data = h.data[:h.Len()-1]
 	h.siftDown(0)
 	return ret
@@ -70,6 +71,7 @@ func (h *Heap) Remove(e interface{}, eqFunc func(e, b interface{}) bool) interfa
 	} else {
 		// 与最后一个值进行替换
 		h.swap(fi, h.Len()-1)
+		h.data[h.Len()-1] = nil     // 置空避免内存泄漏
 		h.data = h.data[:h.Len()-1] //移除最后一个
 		// 下沉下标
 		h.siftDown(fi)

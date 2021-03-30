@@ -77,6 +77,21 @@ func TestHeap_Add(t *testing.T) {
 	}
 }
 
+func TestIndexHeap_Add(t *testing.T) {
+	h := NewIndexHeap(taskCompare)
+	h.Heapify(generatorTask()...)
+	cnt := 0
+	for h.Len() != 0 {
+		cnt++
+		pe := h.Peek().(*Task)
+		pe.Name = pe.Name + "_p" + strconv.Itoa(cnt)
+		e := h.Poll()
+		if t, ok := e.(*Task); ok {
+			fmt.Println(t)
+		}
+	}
+}
+
 func Test_topKFrequent(t *testing.T) {
 	ret := topKFrequent([]int{1, 1, 1, 2, 2, 3}, 2)
 	t.Log(ret)
