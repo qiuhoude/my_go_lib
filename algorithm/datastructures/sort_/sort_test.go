@@ -181,6 +181,9 @@ func mergeSort(arr []int, p, r int) {
 }
 
 func merge(arr []int, p, mid, r int) {
+	/*
+		可以想象将 arr1[p..mid],arr2[mid+1..r] 的两个数组,合并到tmp[]数组中
+	*/
 	tmp := make([]int, r-p+1)
 	i := p       // 前数组的指针
 	j := mid + 1 // 后数组指针
@@ -269,16 +272,16 @@ func quickSort(arr []int, p, r int) {
 func partition(arr []int, p, r int) int {
 	// 取 r位置为 pivot点
 	pivot := arr[r]
-	i := p // p ~ i 是<pivot
+	i := p // p ~ i 是<pivot 区域, j~r 是>pivot的区域,此处可以想象就是不断寻找 p~i 区域的范围
 	for j := p; j < r; j++ {
 		if arr[j] < pivot {
 			if j != i {
-				arr[j], arr[i] = arr[i], arr[j] //放到最后面
+				arr[j], arr[i] = arr[i], arr[j]
 			}
 			i++
 		}
 	}
-	arr[i], arr[r] = arr[r], arr[i]
+	arr[i], arr[r] = arr[r], arr[i] // 循环完成后i就是中间位置, 将 pivot 放到中间位置,
 	return i
 }
 
@@ -323,7 +326,7 @@ func findMaxK(arr []int, k int) int {
 
 func TestFindMaxK(t *testing.T) {
 	arr := []int{4, 5, 6, 3, 2, 1, 8, 7, 1, 1}
-	k := len(arr)
+	k := 1
 	i := findMaxK(arr, k)
 	if i != -1 {
 		t.Log(arr[i])
