@@ -19,14 +19,14 @@ func BSearch(arr []int, val int) int {
 		return -1
 	}
 	low := 0
-	high := n - 1
+	high := n - 1     // // 在 [low...high] 前闭 后闭的区间进行找到对应的目标,所以下面是 <= 而不是 <
 	for low <= high { // 注意是 <= 不是 <
 		mid := low + ((high - low) >> 1)
 		if arr[mid] == val {
 			return mid
-		} else if arr[mid] < val {
+		} else if arr[mid] < val { // [mid+1...high] 区间
 			low = mid + 1 // 注意需要+1
-		} else {
+		} else { // [mid-1...high] 区间
 			high = mid - 1
 		}
 	}
