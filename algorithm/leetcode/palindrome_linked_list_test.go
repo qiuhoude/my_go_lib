@@ -1,6 +1,9 @@
 package leetcode
 
 // 234. 回文链表 https://leetcode-cn.com/problems/palindrome-linked-list/
+/*
+思路: 快慢指针, 慢指针
+*/
 func isPalindrome(head *ListNode) bool {
 	if head == nil || head.Next == nil {
 		return true
