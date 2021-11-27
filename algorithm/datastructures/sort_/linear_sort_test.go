@@ -92,8 +92,8 @@ func countingSort(arr []int) {
 
 	// 核心部分
 	for i := n - 1; i >= 0; i-- {
-		index := c[arr[i]] - 1
-		tmp[index] = arr[i]
+		//index := c[arr[i]] - 1
+		tmp[c[arr[i]]-1] = arr[i]
 		c[arr[i]]--
 	}
 

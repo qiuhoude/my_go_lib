@@ -2,6 +2,7 @@ package leetcode
 
 import (
 	"math"
+	"strings"
 	"testing"
 )
 
@@ -92,6 +93,19 @@ func cmpFreq(freqT, freqS [256]int, tIdInAscii []byte) bool {
 }
 
 func Test_minWindow(t *testing.T) {
-	res := minWindow("ADOBECODEBANC", "ABC")
-	t.Log(res)
+	tests := []struct {
+		expected string
+		arg1     string
+		arg2     string
+	}{
+		{"BANC", "ADOBECODEBANC", "ABC"},
+		{"a", "a", "a"},
+		{"", "a", "aa"},
+	}
+	for _, tt := range tests {
+		res := minWindow(tt.arg1, tt.arg2)
+		if !strings.EqualFold(tt.expected, res) {
+			t.Logf("expected:%v but got:%v", tt.expected, res)
+		}
+	}
 }
