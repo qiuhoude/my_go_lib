@@ -1,7 +1,14 @@
 package leetcode
 
-//1. 两数之和 https://leetcode-cn.com/problems/two-sum/submissions/
+//1. 两数之和 https://leetcode-cn.com/problems/two-sum/
 
+/*
+思路1:
+使用查表法,将目标减去cur的值,看cur之前的数是否再hash表中存在
+
+思路2:
+排序后使用对撞指针,注意排序是下标进行排序
+*/
 func twoSum(nums []int, target int) []int {
 	length := len(nums)
 	res := make([]int, 2)

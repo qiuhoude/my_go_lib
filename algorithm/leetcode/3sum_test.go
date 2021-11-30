@@ -16,28 +16,35 @@ import (
   [-1, 0, 1],
   [-1, -1, 2]
 ]
+思路1:
+排序后,使用对撞指针,找出3数合为0
+
+在不排序的情况使用hash表的方式行不通，因为不能去重
+
 */
+
 func threeSum(nums []int) [][]int {
 	// 思路: 1.排序,
 	// 2. 使用三指针 i l r
-
-	sort.Slice(nums, func(i, j int) bool {
-		return nums[i] < nums[j] // 正序
-	})
-
-	var res [][]int
 	length := len(nums)
-	if length < 3 || nums[0] > 0 {
+	if length < 3 {
 		// 无解情况
 		return nil
 	}
 
-	for i := 0; i < length && nums[i] <= 0; i++ {
-		l := i + 1
-		r := length - 1
+	//sort.Slice(nums, func(i, j int) bool {
+	//	return nums[i] < nums[j] // 正序
+	//})
+
+	sort.Ints(nums)
+	var res [][]int
+
+	for i := 0; i < length; i++ {
 		if i > 0 && nums[i] == nums[i-1] { // 重复的去掉
 			continue
 		}
+		l := i + 1
+		r := length - 1
 		for l < r {
 			sum := nums[i] + nums[l] + nums[r]
 			if sum == 0 { // 找到目的

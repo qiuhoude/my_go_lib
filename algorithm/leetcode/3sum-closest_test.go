@@ -1,6 +1,8 @@
 package leetcode
 
-import "sort"
+import (
+	"sort"
+)
 
 // 16. 最接近的三数之和 https://leetcode-cn.com/problems/3sum-closest/
 
@@ -10,19 +12,15 @@ import "sort"
 
 例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).
 
+思路:
+排序 + 3 指针
 */
 
 func threeSumClosest(nums []int, target int) int {
 	// 思路: 1. 排序
 	// 2. 也是使用三指针
-	sort.Slice(nums, func(i, j int) bool {
-		return nums[i] < nums[j] // 正序
-	})
-
+	sort.Ints(nums)
 	length := len(nums)
-	if length < 3 {
-		return 0
-	}
 	ret := nums[0] + nums[1] + nums[2]
 
 	for i := 0; i < length; i++ {
@@ -33,18 +31,15 @@ func threeSumClosest(nums []int, target int) int {
 		}
 		for l < r {
 			sum := nums[i] + nums[l] + nums[r]
-			if abs(target-ret) == 0 { // 找到目的
-				for l < r && nums[l] == nums[l+1] { // 去重
-					l++
-				}
-				for l < r && nums[r] == nums[r-1] { // 去重
-					r--
-				}
+			if abs(target-sum) < abs(target-ret) {
+				ret = sum
+			}
+			if target == sum { // 找到目的直接是最接近目标的
+				ret = sum
+				return ret
+			} else if sum < target {
 				l++
-				r--
-			} else if sum < 0 {
-				l++
-			} else if sum > 0 {
+			} else if sum > target {
 				r--
 			}
 		}
