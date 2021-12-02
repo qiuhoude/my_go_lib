@@ -4,11 +4,8 @@ package rsa
 // 欧几里 辗转相除法
 func greatestCommonDivisor1(a, b int) int {
 	// 欧几里的辗转相除法
-	if a < b {
-		a, b = b, a
-	}
-	for a%b != 0 {
-		a, b = b, a%b
+	for a != 0 {
+		a, b = b%a, a
 	}
 	return b
 }
@@ -20,7 +17,7 @@ func greatestCommonDivisor2(a, b int) int {
 	if a < b {
 		a, b = b, a
 	}
-	for a != b {
+	for a != b && a-b > 0 {
 		a = a - b
 		if a < b {
 			a, b = b, a
