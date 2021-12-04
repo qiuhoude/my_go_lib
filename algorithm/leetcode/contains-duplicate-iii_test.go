@@ -162,10 +162,10 @@ func Test_containsNearbyAlmostDuplicate(t *testing.T) {
 		arg3 int
 		want bool
 	}{
-		//{[]int{1, 2, 3, 1}, 3, 0, true},
-		//{[]int{1, 0, 1, 1}, 1, 2, true},
-		//{[]int{1, 5, 9, 1, 5, 9}, 2, 3, false},
-		//{[]int{1, 2, 1, 1}, 1, 0, true},
+		{[]int{1, 2, 3, 1}, 3, 0, true},
+		{[]int{1, 0, 1, 1}, 1, 2, true},
+		{[]int{1, 5, 9, 1, 5, 9}, 2, 3, false},
+		{[]int{1, 2, 1, 1}, 1, 0, true},
 		{[]int{2, 0, -2, 2}, 2, 1, false},
 	}
 	for _, tt := range tests {
