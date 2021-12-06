@@ -18,7 +18,7 @@ package leetcode
 
 进阶： 你可以使用一趟扫描完成反转吗？
 
-思路: 和206反转链表基本一致,需要新增leftPrev和leftNode节点的指针,用与结束后进行链接, 创建dumpy哑节点可以简化操作和边界判断
+思路: 和206反转链表基本一致,需要新增leftPrev和leftNode节点的指针,用与结束后进行链接, 创建dummy哑节点可以简化操作和边界判断
 
   2~4
   p c n
@@ -34,10 +34,10 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 	if left == right {
 		return head
 	}
-	dumpy := &ListNode{Next: head}   // 创建dumpy节点操作简化边界条件判断
+	dummy := &ListNode{Next: head}   // 创建dummy节点操作简化边界条件判断
 	var leftPrev, leftNode *ListNode // 记录开始的节点和开始的前一个节点
 	var prev *ListNode = nil
-	cur := dumpy
+	cur := dummy
 	for i := 0; cur != nil; i++ { // left right下标是从1开始,创建哑节点后可以从0开始
 		next := cur.Next
 		if i == left {
@@ -56,5 +56,5 @@ func reverseBetween(head *ListNode, left int, right int) *ListNode {
 			break
 		}
 	}
-	return dumpy.Next
+	return dummy.Next
 }
