@@ -23,7 +23,8 @@ package leetcode
 -105 <= Node.val <= 105
 
 思路:
-使用归并排序,将原链表切分成各个小链表,切分不能切分为止,然后进行合并
+自顶向下:使用归并排序,将原链表切分成各个小链表,切分不能切分为止,然后进行合并
+
 */
 
 /**
@@ -67,16 +68,10 @@ func mergeNodeList(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	// 余下部分
 
-	for cur1 != nil {
+	if cur1 != nil {
 		cur.Next = cur1
-		cur1 = cur1.Next
-		cur = cur.Next
-	}
-	for cur2 != nil {
+	} else if cur2 != nil {
 		cur.Next = cur2
-		cur2 = cur2.Next
-		cur = cur.Next
 	}
-
 	return dummyHead.Next
 }
