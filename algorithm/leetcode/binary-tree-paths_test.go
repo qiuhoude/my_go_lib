@@ -9,7 +9,7 @@ import (
 // 257. 二叉树的所有路径
 // https://leetcode-cn.com/problems/binary-tree-paths/
 
-func TestB(t *testing.T) {
+func Test_binaryTreePaths(t *testing.T) {
 	lr := TreeNode{Val: 5}
 	l := TreeNode{Val: 2, Right: &lr}
 	r := TreeNode{Val: 3}
