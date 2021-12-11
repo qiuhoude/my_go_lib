@@ -96,6 +96,10 @@ func TestBST_PostOrderNR(t *testing.T) {
 	bst.PostOrderNR(func(e Comparable) {
 		fmt.Println(e)
 	})
+	//fmt.Println("-------------------")
+	//bst.PostOrderMorris(func(e Comparable) {
+	//	fmt.Println(e)
+	//})
 }
 
 func TestBST_LevelOrder(t *testing.T) {

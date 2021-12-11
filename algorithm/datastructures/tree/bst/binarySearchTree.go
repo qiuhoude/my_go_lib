@@ -157,7 +157,7 @@ func (t *BST) PreOrderNR2(f TraverseFunc) {
 			n = n.left
 		}
 		n = s.Pop().(*node)
-		n = n.left
+		n = n.right
 	}
 }
 
@@ -230,20 +230,27 @@ func (t *BST) PreOrderMorris(f TraverseFunc) {
 		return
 	}
 	for cur != nil {
+		// If left child is null, print the current node data. Move to
+		// right child.
 		if cur.left == nil {
 			f(cur.val)
 			cur = cur.right
 		} else {
-			prev := cur.left
-			for prev.right != nil && prev.right != cur {
-				prev = prev.right
+			// Find inorder predecessor
+			pred := cur.left
+			for pred.right != nil && pred.right != cur {
+				pred = pred.right
 			}
-			if prev.right == nil {
+			// If the right child of inorder predecessor already points to
+			// this node
+			if pred.right == nil {
 				f(cur.val)
-				prev.right = cur
+				pred.right = cur
 				cur = cur.left
 			} else {
-				prev.right = nil
+				// If right child doesn't point to this node, then print this
+				// node and make right child point to this node
+				pred.right = nil
 				cur = cur.right
 			}
 		}
@@ -260,21 +267,83 @@ func (t *BST) InOrderMorris(f TraverseFunc) {
 			f(cur.val)
 			cur = cur.right
 		} else {
-			prev := cur.left
-			for prev.right != nil && prev.right != cur {
-				prev = prev.right
+			pred := cur.left
+			for pred.right != nil && pred.right != cur {
+				pred = pred.right
 			}
-			if prev.right == nil {
-				prev.right = cur
+			if pred.right == nil {
+				pred.right = cur
 				cur = cur.left
 			} else {
-				prev.right = nil
 				f(cur.val)
+				pred.right = nil
 				cur = cur.right
 			}
 		}
 	}
 }
+
+// Morris的后序遍历未完成...
+/*func (t *BST) PostOrderMorris(f TraverseFunc) {
+	cur := t.root
+	if cur == nil {
+		return
+	}
+	var prev *node
+	for cur != nil {
+		if cur.left == nil {
+			prev = cur
+			cur = cur.right
+		} else {
+			pred := cur.left
+			for pred.right != nil && pred.right != cur {
+				pred = pred.right
+			}
+
+			if pred.right == nil {
+				// predeccessor found for first time
+				pred.right = cur
+				prev = cur
+				cur = cur.left
+			} else {
+
+				// predeccessor found second time
+				// reverse the right references in chain from pred to cur
+				from := cur.left
+				to := prev
+				tmpTo := to
+				reverse(from, to)
+				// visit the nodes from pred to cur
+				// again reverse the right references from pred to cur
+				for {
+					f(tmpTo.val)
+					if tmpTo == from {
+						break
+					}
+					tmpTo = tmpTo.right
+				}
+				reverse(to, from)
+
+				// remove the pred to node reference to restore the tree structure
+				pred.right = nil
+				prev = cur
+				cur = cur.right
+			}
+		}
+	}
+}
+
+func reverse(from, to *node) {
+	cur := from
+	next := from.right
+	for cur != to {
+		tmp := next.right
+		next.right = cur
+		cur = next
+		next = tmp
+	}
+}
+*/
 
 // 二分搜索树的层序遍历,也是广度遍历,借助队列的结构遍历
 func (t *BST) LevelOrder(f TraverseFunc) {
