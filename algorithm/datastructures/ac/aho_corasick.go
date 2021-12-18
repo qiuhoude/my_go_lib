@@ -148,7 +148,6 @@ func (ac *AC) Remove(w string) bool {
 func (ac *AC) Contains(w string) bool {
 	cur := ac.root
 	for _, v := range []rune(w) {
-
 		n, ok := cur.children[v]
 		if !ok {
 			return false

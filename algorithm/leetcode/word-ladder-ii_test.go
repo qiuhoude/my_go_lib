@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"container/list"
 	"testing"
 )
 
@@ -42,8 +41,8 @@ beginWord != endWord
 wordList 中的所有单词 互不相同
 
 思路:
-与 127题一致, 使用广度优先遍历
-使用数组记录路径, 下标表示节点id,值存的上一个节点的id, 广度优先不能找到所有的解
+与 127题一致, 构建图,使用广度优先找到多路径path,然后使用dfs+stack解析path得到结果
+使用数组记录路径, 下标表示节点id,值存的上一个节点的id
 
 
 
@@ -116,17 +115,17 @@ func findLadders(beginWord string, endWord string, wordList []string) [][]string
 
 	}
 	// dfs 解析path 得到结果
-	dQue := list.New()
-	dQue.PushFront(endId)
-	dfsMultiPathFn(paths, idWord, beginId, endId, 0, dQue, &res)
+	stack := []int{endId}
+	dfsMultiPathFn(paths, idWord, beginId, endId, 0, &stack, &res)
 	return res
 }
 
-func dfsMultiPathFn(paths map[int]map[int]bool, idWord map[int]string, beginId, curId, depth int, dQue *list.List, res *[][]string) {
+func dfsMultiPathFn(paths map[int]map[int]bool, idWord map[int]string, beginId, curId, depth int, stack *[]int, res *[][]string) {
 	if curId == beginId {
-		var path []string
-		for e := dQue.Front(); e != nil; e = e.Next() {
-			path = append(path, idWord[e.Value.(int)])
+		size := len(*stack)
+		path := make([]string, 0, size)
+		for i := len(*stack) - 1; i >= 0; i-- {
+			path = append(path, idWord[(*stack)[i]])
 		}
 		*res = append(*res, path)
 		return
@@ -134,9 +133,9 @@ func dfsMultiPathFn(paths map[int]map[int]bool, idWord map[int]string, beginId, 
 
 	if li, has := paths[curId]; has {
 		for precursorId := range li {
-			dQue.PushFront(precursorId)
-			dfsMultiPathFn(paths, idWord, beginId, precursorId, depth+1, dQue, res)
-			dQue.Remove(dQue.Front())
+			*stack = append(*stack, precursorId)
+			dfsMultiPathFn(paths, idWord, beginId, precursorId, depth+1, stack, res)
+			*stack = (*stack)[:len(*stack)-1]
 		}
 	}
 }
