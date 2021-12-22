@@ -115,9 +115,41 @@ func findLadders(beginWord string, endWord string, wordList []string) [][]string
 
 	}
 	// dfs 解析path 得到结果
-	stack := []int{endId}
-	dfsMultiPathFn(paths, idWord, beginId, endId, 0, &stack, &res)
+	//stack := []int{endId}
+	//dfsMultiPathFn(paths, idWord, beginId, endId, 0, &stack, &res)
+	return dfsMultiPathFn2(paths, idWord, beginId, endId)
+}
+
+func dfsMultiPathFn2(paths map[int]map[int]bool, idWord map[int]string, beginId, curId int) [][]string {
+	if curId == beginId {
+		return [][]string{{idWord[curId]}}
+	}
+	var res [][]string
+	if li, has := paths[curId]; has {
+		for precursorId := range li {
+			pathRes := dfsMultiPathFn2(paths, idWord, beginId, precursorId)
+			for _, v := range pathRes {
+				res = append(res, append(v, idWord[curId]))
+			}
+		}
+	}
 	return res
+}
+
+func isDiffOneCharacter(str1, str2 string) bool {
+	if len(str1) != len(str2) {
+		return false
+	}
+	cnt := 0
+	for i := 0; i < len(str1); i++ {
+		if str1[i] != str2[i] {
+			cnt++
+		}
+		if cnt > 1 {
+			return false
+		}
+	}
+	return cnt == 1
 }
 
 func dfsMultiPathFn(paths map[int]map[int]bool, idWord map[int]string, beginId, curId, depth int, stack *[]int, res *[][]string) {
@@ -138,22 +170,6 @@ func dfsMultiPathFn(paths map[int]map[int]bool, idWord map[int]string, beginId, 
 			*stack = (*stack)[:len(*stack)-1]
 		}
 	}
-}
-
-func isDiffOneCharacter(str1, str2 string) bool {
-	if len(str1) != len(str2) {
-		return false
-	}
-	cnt := 0
-	for i := 0; i < len(str1); i++ {
-		if str1[i] != str2[i] {
-			cnt++
-		}
-		if cnt > 1 {
-			return false
-		}
-	}
-	return cnt == 1
 }
 
 func Test_findLadders(t *testing.T) {

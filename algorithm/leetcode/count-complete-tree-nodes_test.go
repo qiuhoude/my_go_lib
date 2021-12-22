@@ -83,13 +83,13 @@ func countNodes2(root *TreeNode) int {
 }
 
 func Test_countNodes2(t *testing.T) {
-	//root := BuilderCompleteBinaryTree([]int{1, 2, 3, 4, 5, 6})
-	root := BuilderCompleteBinaryTree([]int{1})
+	//root := BuildCompleteBinaryTree([]int{1, 2, 3, 4, 5, 6})
+	root := BuildCompleteBinaryTree([]int{1})
 	res := countNodes2(root)
 	t.Log(res)
 }
 
-func BuilderCompleteBinaryTree(arr []int) *TreeNode {
+func BuildCompleteBinaryTree(arr []int) *TreeNode {
 	if len(arr) == 0 {
 		return nil
 	}
