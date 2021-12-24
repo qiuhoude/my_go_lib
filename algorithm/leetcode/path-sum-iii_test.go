@@ -19,9 +19,32 @@ package leetcode
 -1000 <= targetSum <= 1000
 
 思路:
-深度优先,遍历每个节点为起点, 调用一个子过程找到路径和
+1. 深度优先,遍历每个节点为起点, 调用一个子过程找到路径和
+2. 使用前缀和,把路径上之前的数加起来,
 
 */
+
+// 前缀和的方式
+func pathSum(root *TreeNode, targetSum int) int {
+	prefix := make(map[int]int) // <节点的前缀和,拥有路满足条件径数量>
+	prefix[0] = 1               // 防止只有一个根节点
+	return pathSumDfs(root, prefix, targetSum, 0)
+}
+
+// curSum 当前节点的和
+func pathSumDfs(root *TreeNode, prefix map[int]int, targetSum, curSum int) int {
+	if root == nil {
+		return 0
+	}
+
+	curSum += root.Val
+	res := prefix[curSum-targetSum]
+	prefix[curSum]++ //
+	res += pathSumDfs(root.Left, prefix, targetSum, curSum)
+	res += pathSumDfs(root.Right, prefix, targetSum, curSum)
+	prefix[curSum]-- //
+	return res
+}
 
 func pathSumiii(root *TreeNode, sum int) int {
 	if root == nil {
@@ -42,6 +65,7 @@ func findNodeSum(node *TreeNode, num int) int {
 	if node.Val == num {
 		ret += 1 // 找到了+1
 	}
+	// 还需要
 	ret += findNodeSum(node.Left, num-node.Val)
 	ret += findNodeSum(node.Right, num-node.Val)
 	return ret

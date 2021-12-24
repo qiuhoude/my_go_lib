@@ -19,7 +19,10 @@ func TestAVLTree_Add(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		tree.Add(i)
 	}
-	t.Log(tree)
-	t.Log(IsBST(tree))
-	t.Log(IsBalanced(tree))
+	if !IsBST(tree) {
+		t.Fatalf("不是一个BST")
+	}
+	if !IsBalanced(tree) {
+		t.Fatalf("不是一个BST")
+	}
 }

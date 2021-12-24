@@ -578,7 +578,7 @@ func remove(n *node, c Comparable) *node {
 		// 1. 待删除节点左子树为空的情况
 		if n.left == nil { // 将右子树的数据反给上层
 			tn := n.right
-			n.left = nil
+			n.right = nil
 			opDepth(tn, -1)
 			return tn
 		}

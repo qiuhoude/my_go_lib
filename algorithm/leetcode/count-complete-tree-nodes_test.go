@@ -107,5 +107,30 @@ func createNode(arr []int, index int) *TreeNode {
 		}
 	}
 	return node
+}
 
+type Integer struct {
+	V int
+}
+
+func i2Integer(i int) *Integer {
+	return &Integer{V: i}
+}
+
+func BuildCompleteBinaryTreeInteger(arr []*Integer) *TreeNode {
+	if len(arr) == 0 {
+		return nil
+	}
+	return createNodeInteger(arr, 0)
+}
+func createNodeInteger(arr []*Integer, index int) *TreeNode {
+	var node *TreeNode
+	if index < len(arr) && arr[index] != nil {
+		node = &TreeNode{
+			Val:   arr[index].V,
+			Left:  createNodeInteger(arr, index*2+1),
+			Right: createNodeInteger(arr, index*2+2),
+		}
+	}
+	return node
 }
