@@ -44,6 +44,7 @@ func lowestCommonAncestorii(root, p, q *TreeNode) *TreeNode {
 	return res
 }
 
+// 最外层调用此函数 p,q必须在tree中
 func findLCA(root, p, q *TreeNode, res **TreeNode) bool {
 	if root == nil {
 		return false
@@ -52,9 +53,11 @@ func findLCA(root, p, q *TreeNode, res **TreeNode) bool {
 		*res = root
 		return true
 	}
+	// 检测 p 或 q 其中一个是否在root.left中
 	left := findLCA(root.Left, p, q, res)
+	// 检测 p 或 q 其中一个是否在root.right中
 	right := findLCA(root.Right, p, q, res)
-	if left && right {
+	if left && right { // 两边都存在说明 p,q 分别 root两侧,而不是一侧
 		*res = root
 	}
 	return left || right

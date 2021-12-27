@@ -37,7 +37,7 @@ func BmSearch(mainStr, pattern []rune) int {
 			}
 		}
 
-		if badCharIndex <= 0 {
+		if badCharIndex < 0 {
 			// 没有坏串就匹配成功，返回主串与模式串第一个匹配的字符的位置
 			return i
 			/*
@@ -52,7 +52,7 @@ func BmSearch(mainStr, pattern []rune) int {
 			 bc[mainStr[i+badCharIndex]]就是坏串字符在模式串的位置 没有就是 -1
 			 badCharIndex-bc[mainStr[i+badCharIndex]] 就是要向后滑动的距离
 		*/
-		bcIndex := -1
+		bcIndex := -1 // -1 表示bc中没有的默认值
 		if i, ok := bc[mainStr[i+badCharIndex]]; ok {
 			bcIndex = i
 		}
@@ -91,7 +91,7 @@ func moveByGS(badCharIndex, patternLen int, suffix []int, prefix []bool) int {
 
 	// 否则匹配后缀子串
 	for r := badCharIndex + 2; r < patternLen-1; r++ {
-		//
+		// 为什么是+2开始, 原因: 需要坏字符的后面一位开始比较所以+1, 后缀串是没有开头字符的所以又+1
 		if prefix[patternLen-r] { // patternLen-r 表示后缀子串的长度
 			return r
 		}
