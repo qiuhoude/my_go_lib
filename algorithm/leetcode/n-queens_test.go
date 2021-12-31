@@ -5,17 +5,31 @@ import (
 	"testing"
 )
 
-// 51. N皇后
-// https://leetcode-cn.com/problems/n-queens/
+// 51. N皇后  https://leetcode-cn.com/problems/n-queens/
+/*
+n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
 
-func TestSolveNQueens(t *testing.T) {
-	t.Log(solveNQueens(4))
-}
+给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。
+每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
+
+输入：n = 4
+输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+
+输入：n = 1
+输出：[["Q"]]
+
+1 <= n <= 9
+
+思路:
+递归回溯
+
+*/
 
 func solveNQueens(n int) [][]string {
-	ret := make([]int, n)
+	record := make([]int, n) //
 	var retStr [][]string
-	calQueens(0, n, ret, &retStr)
+	calQueens(0, n, record, &retStr)
 	return retStr
 }
 
@@ -68,4 +82,8 @@ func isOk(row, col, n int, ret []int) bool {
 		rCol++
 	}
 	return true
+}
+
+func TestSolveNQueens(t *testing.T) {
+	solveNQueens(8)
 }

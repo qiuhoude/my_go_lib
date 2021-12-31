@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-// 45. 跳跃游戏 II
-// https://leetcode-cn.com/problems/jump-game-ii/
+// 45. 跳跃游戏 II https://leetcode-cn.com/problems/jump-game-ii/
 
 func jump(nums []int) int {
 	// 思路: 每步找到可走下一步的最大数,

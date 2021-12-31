@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-// 384. 打乱数组
-// https://leetcode-cn.com/problems/shuffle-an-array/
+// 384. 打乱数组 https://leetcode-cn.com/problems/shuffle-an-array/
 
 type Solution struct {
 	origin []int

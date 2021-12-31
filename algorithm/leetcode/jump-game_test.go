@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-// 55. 跳跃游戏
-// https://leetcode-cn.com/problems/jump-game/
+// 55. 跳跃游戏 https://leetcode-cn.com/problems/jump-game/
 
 func canJump(nums []int) bool {
 	size := len(nums)

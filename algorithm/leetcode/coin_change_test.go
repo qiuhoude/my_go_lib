@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-// 硬币问题 leetcode 322
-// https://leetcode-cn.com/problems/coin-change/
+// 322. 硬币问题 https://leetcode-cn.com/problems/coin-change/
 //coins 硬币, amount 期望的金额, 返回最少需要的硬币数量，如果不可解返回-1
 func CoinCharge(coins []int, amount int) int {
 	dp := make([]int, amount+1) //dp存储的是 0~amount金额最小值的信息

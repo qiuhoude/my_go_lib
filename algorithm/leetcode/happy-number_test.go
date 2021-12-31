@@ -2,7 +2,7 @@ package leetcode
 
 import "testing"
 
-// 202 https://leetcode-cn.com/problems/happy-number/
+// 202. 快乐数 https://leetcode-cn.com/problems/happy-number/
 
 /*
 编写一个算法来判断一个数 n 是不是快乐数。

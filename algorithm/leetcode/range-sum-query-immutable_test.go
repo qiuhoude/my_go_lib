@@ -5,10 +5,7 @@ import (
 	"testing"
 )
 
-// leetcode 307号问题
-// https://leetcode.com/problems/range-sum-query-mutable/description/
-// leetcode 303. 区域和检索 - 数组不可变
-// https://leetcode-cn.com/problems/range-sum-query-immutable/
+// 303. 区域和检索 - 数组不可变 https://leetcode-cn.com/problems/range-sum-query-immutable/
 
 type NumArray struct {
 	nums []int
