@@ -24,7 +24,7 @@ import (
 -10 <= nums[i] <= 10
 
 思路:
-与
+使用排序用于递归回溯的去重, 再使用递归回溯美枚举出把每个元素放在首位的情况
 */
 func permuteUnique(nums []int) [][]int {
 	var res [][]int
@@ -59,45 +59,11 @@ func permuteUnique(nums []int) [][]int {
 	return res
 }
 
-func permuteUnique2(nums []int) [][]int {
-	if len(nums) == 0 {
-		return nil
-	}
-	if len(nums) == 1 {
-		return [][]int{{nums[0]}}
-	}
-	if len(nums) == 2 {
-		if nums[0] == nums[1] { // 与前一个数相等 只返回一种可能性
-			return [][]int{{nums[0], nums[1]}}
-		} else {
-			return [][]int{{nums[0], nums[1]}, {nums[1], nums[0]}}
-		}
-	}
-	// 先排序
-	sort.Ints(nums)
-	var result [][]int
-	for index, value := range nums {
-		var numsCopy = make([]int, len(nums))
-		copy(numsCopy, nums)
-		if index > 0 && numsCopy[index] == numsCopy[index-1] {
-			continue
-		}
-		// 将numsCopy中index这个元素给剔除掉赋值给numsSubOne
-		numsSubOne := append(numsCopy[:index], numsCopy[index+1:]...)
-		valueSlice := []int{value}
-		newSubSlice := permuteUnique2(numsSubOne)
-		for _, newValue := range newSubSlice {
-			result = append(result, append(valueSlice, newValue...))
-		}
-	}
-	return result
-}
-
 func Test_permuteUnique(t *testing.T) {
 	//nums := []int{-1, 2, 0, -1, 1, 0, 1}
 	//nums := []int{1, 1, 2, 2, 3, 3, 4}
 	nums := []int{1, 1, 2, 2, 3, 3, 4}
 	res := permuteUnique(nums)
-	t.Logf("%v\n", len(res))
+	t.Logf("%v\n", res)
 
 }

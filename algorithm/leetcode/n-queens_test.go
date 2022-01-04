@@ -34,14 +34,14 @@ func solveNQueens(n int) [][]string {
 	return retStr
 }
 
-func calQueens(row, n int, ret []int, retStr *[][]string) {
+func calQueens(row, n int, record []int, retStr *[][]string) {
 	if row >= n {
 		// 找到解
 		solve := make([]string, n)
 		c := make([]rune, n)
 		for i := 0; i < n; i++ {
 			for j := 0; j < n; j++ {
-				if ret[i] == j {
+				if record[i] == j {
 					c[j] = 'Q'
 				} else {
 					c[j] = '.'
@@ -55,9 +55,9 @@ func calQueens(row, n int, ret []int, retStr *[][]string) {
 		return
 	}
 	for col := 0; col < n; col++ { // 每行都有n种可能
-		if isOk1(row, col, n, ret) {
-			ret[row] = col                   // 第 row 行的棋子放到了 column 列
-			calQueens(row+1, n, ret, retStr) // 如果满足条件就进行尝试下一行
+		if isOk1(row, col, n, record) {
+			record[row] = col                   // 第 row 行的棋子放到了 column 列
+			calQueens(row+1, n, record, retStr) // 如果满足条件就进行尝试下一行
 		}
 	}
 }
