@@ -55,7 +55,7 @@ O(nlogn) 10^7
     + [数组队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/array_queue.go)
     + [链表队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/linked_queue.go)
     + [循环队列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/circular_queue.go)
-    + [优先级队列][priority_queue] 使用最小堆实现
+    + [优先级队列][priority_queue] 使用[最小堆][minheap]实现
 - 排序
     + [冒泡排序][sort_test] (两两比较数组中的值,不满足就换位置)
     + [插入排序][sort_test] (分区思想,将未排序的区域第一个值插入到已排序区域中)
@@ -86,7 +86,16 @@ O(nlogn) 10^7
 - 树
     + [二分搜索树][bst] 基础二叉数,有递归遍历和非递归遍历的方式,遍历可分为前中后3种遍历方式
     + [分段搜索树][segmentTree] 分段维护某个数据, 比如有个数组我要快速得出中间某一段的 sum值 或 max值 或 min值就可以该结构
+    + [AVL树][avl] 平衡二叉树
 - [并查询集][unionfind] 主要用查询某个元素属于哪个集合,合并两个集合, 比如 可以判断迷宫中哪些点是否有连接
+- 图相关
+    + [a star 寻路算法][a_star]
+    + [dijkstra 寻路算法][dijkstra]
+    + [拓扑排序][topology] Kahn 算法可以判断依赖中是否有循环依赖出现
+
+### 动态规划问题
+动态规划和递归回溯是我觉得在学习算法中感觉最难的部分,特别是动态规划
+解题心路历程, 自顶向下思考(有重复子问题加上最优子结构,递归回溯+记忆化搜索),然后转成自底向上的思考(动态规划),列出递推公式求解
 
 
 ### leetcode 
@@ -119,6 +128,8 @@ O(nlogn) 10^7
 - [52. N皇后 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/n-queens-ii_test.go)
 - [55. 跳跃游戏](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/jump-game_test.go)
 - [61. 旋转链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/rotate-list_test.go)
+- [64. 最小路径和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/minimum-path-sum_test.go)
+- [70. 爬楼梯](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/climbing-stairs_test.go)
 - [71. 简化路径](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/simplify-path_test.go)
 - [75. 颜色分类](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sort-colors_test.go)
 - [76. 最小覆盖子串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/minimum-window-substring_test.go)
@@ -146,6 +157,7 @@ O(nlogn) 10^7
 - [111. 二叉树的最小深度](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/minimum-depth-of-binary-tree_test.go)
 - [112. 路径总和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/path-sum_test.go)
 - [113. 路径总和 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/path-sum-ii_test.go)
+- [120. 三角形最小路径和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/triangle_test.go)
 - [125. 验证回文串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/valid-palindrome_test.go)
 - [126. 单词接龙 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-ladder-ii_test.go)
 - [127. 单词接龙](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-ladder_test.go)
@@ -192,6 +204,7 @@ O(nlogn) 10^7
 - [322. 硬币问题](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change_test.go)
 - [328. 奇偶链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/odd-even-linked-list_test.go)
 - [341. 扁平化嵌套列表迭代器](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/flatten-nested-list-iterator_test.go)
+- [343. 整数拆分](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/integer-break_test.go)
 - [344. 反转字符串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-string_test.go)
 - [345. 反转字符串中的元音字母](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-vowels-of-a-string_test.go)
 - [347. 前 K 个高频元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/top-k-frequent-elements_test.go)
@@ -215,6 +228,7 @@ O(nlogn) 10^7
 [signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlist/signle_linkedlist.go
 [stack]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go
 [priority_queue]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/queue/priority_queue.go
+[minheap]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/minheap/heap.go
 [sort_test]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/sort_/sort_test.go
 [binary_search]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/binary_search/binary_search.go
 [weighted]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/randweighted/randweighted.go
@@ -227,3 +241,7 @@ O(nlogn) 10^7
 [bst]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/bst/binarySearchTree.go
 [segmentTree]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/segmenttree/segmentTree.go
 [unionfind]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/unionfind/unionfind.go
+[avl]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/tree/avl/avl_tree.go
+[a_star]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/graph/a_star.go
+[dijkstra]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/graph/dijkstra.go
+[topology]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/topology/topo.go

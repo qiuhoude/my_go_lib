@@ -151,7 +151,7 @@ func topoSortDFS(g *Graph) {
 			dfs(v, inverseAdj, visited, g)
 		}
 	}
-	fmt.Println()
+	//fmt.Println()
 }
 
 func dfs(vertex int, inverseAdj map[int][]int, visited map[int]bool, g *Graph) {
@@ -164,5 +164,5 @@ func dfs(vertex int, inverseAdj map[int][]int, visited map[int]bool, g *Graph) {
 		visited[tid] = true
 		dfs(tid, inverseAdj, visited, g)
 	}
-	fmt.Print("->", g.adj[vertex].v)
+	//fmt.Print("->", g.adj[vertex].v)
 }
