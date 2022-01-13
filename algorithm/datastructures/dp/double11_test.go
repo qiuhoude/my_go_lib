@@ -77,6 +77,6 @@ func double11(w int, price []int) {
 }
 
 func TestDouble11(t *testing.T) {
-	sl := []int{3, 5, 7, 1, 2, 8, 9}
+	sl := []int{3, 5, 7, 1, 2, 8, 9, 10}
 	double11(36, sl)
 }
