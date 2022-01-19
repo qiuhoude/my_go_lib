@@ -167,6 +167,7 @@ O(nlogn) 10^7
 - [129. 求根节点到叶节点数字之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sum-root-to-leaf-numbers_test.go)
 - [130. 被围绕的区域](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/surrounded-regions_test.go)
 - [131. 分割回文串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/palindrome-partitioning_test.go)
+- [139. 单词拆分](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-break_test.go)
 - [143. 重排链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reorder-list_test.go)
 - [144. 二叉树的前序遍历](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-tree-preorder-traversal_test.go)
 - [145. 二叉树的后序遍历](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-tree-postorder-traversal_test.go)
@@ -217,7 +218,8 @@ O(nlogn) 10^7
 - [347. 前 K 个高频元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/top-k-frequent-elements_test.go)
 - [349. 两个数组的交集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays_test.go)
 - [350. 两个数组的交集 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays-ii_test.go)
-- [377. 组合总和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
+- [376. 摆动序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays-ii_test.go)
+- [377. 组合总和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/wiggle-subsequence_test.go)
 - [384. 打乱数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/shuffle-an-array_test.go)
 - [401. 二进制手表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-watch_test.go)
 - [404. 左叶子之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sum-of-left-leaves_test.go)
@@ -232,6 +234,8 @@ O(nlogn) 10^7
 - [451. 根据字符出现频率排序](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sort-characters-by-frequency_test.go)
 - [452. 用最少数量的箭引爆气球](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/minimum-number-of-arrows-to-burst-balloons_test.go)
 - [454. 四数相加 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/4sum-ii_test.go)
+- [474. 一和零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/ones-and-zeroes_test.go)
+- [494. 目标和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/target-sum_test.go)
 - [733. 图像渲染](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/flood-fill_test.go)
 
 [signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlist/signle_linkedlist.go
