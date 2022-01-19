@@ -13,13 +13,15 @@ import (
 
 w 满减的券的额度
 price 购物车中商品的价格
+
+思路: 其实就是0-1背包问题,只是重量换成价格 求解的对象换了,换成在[w~(w+?)],有解的情况最小值
 */
 func double11(w int, price []int) {
 	n := len(price)
 
 	// 定义状态 f(商品id,商品价格)
 	states := make([][]bool, n)
-	wc := 3 * w
+	wc := w + int(float32(w)*0.3) // w + (w*0.3) 是只可以承受购买的最大金额, 也就是所 200减50活动, 如果实际价格是 260 减50 可以接受,
 	for i := range states {
 		states[i] = make([]bool, wc+1) // 满减是要超过,所以价格要大于w
 		for j := range states[i] {
@@ -78,5 +80,5 @@ func double11(w int, price []int) {
 
 func TestDouble11(t *testing.T) {
 	sl := []int{3, 5, 7, 1, 2, 8, 9, 10}
-	double11(36, sl)
+	double11(20, sl)
 }
