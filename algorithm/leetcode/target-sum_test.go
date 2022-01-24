@@ -27,7 +27,7 @@ package leetcode
 -1000 <= target <= 1000
 
 思路:
-可以将问题转换成 背包问题
+可以将问题转换成 0-1背包问题
 
 原问题等同于： 找到nums一个正子集P和一个负子集N(P和N存的都是正整数) sum(nums) = sum(P) + sum(N)
 使得总和等于target。即sum(P) - sum(N) == target，

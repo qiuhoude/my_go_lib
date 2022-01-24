@@ -237,7 +237,11 @@ O(nlogn) 10^7
 - [455. 分发饼干](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/submissions_test.go)
 - [474. 一和零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/ones-and-zeroes_test.go)
 - [494. 目标和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/target-sum_test.go)
+- [518. 零钱兑换 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change-2.go)
 - [733. 图像渲染](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/flood-fill_test.go)
+- [1049. 最后一块石头的重量 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/last-stone-weight-ii_test.go)
+- [1143. 最长公共子序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/longest-common-subsequence_test.go)
+- [1155. 掷骰子的N种方法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/number-of-dice-rolls-with-target-sum_test.go)
 
 [signle_linkedlist]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/linkedlist/signle_linkedlist.go
 [stack]: https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/datastructures/stack/stack.go

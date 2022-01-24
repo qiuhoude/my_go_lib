@@ -21,7 +21,7 @@ import "testing"
 
 思路:
 一开始拿到题有点懵, 因为是将分成两个子集并且两子集的合还相等, 子集的合必然是 sum/2,
-可以将问题转换成背包问题中 在nums中找出一些数的总和 等于sum/2
+可以将问题转换成0-1背包问题中 在nums中找出一些数的总和 等于sum/2
 half = sum/2 ; sum是奇数无解
 
 自顶向下思路
@@ -83,18 +83,12 @@ func canPartition2(nums []int) bool {
 		for s := 0; s <= half; s++ {
 			if dp[i-1][s] {
 				dp[i][s] = true
-				if s == half { // 提前返回
-					return true
-				}
 			}
 		}
 		// 选择i
 		for s := 0; s <= half-nums[i]; s++ {
 			if dp[i-1][s] {
 				dp[i][s+nums[i]] = true
-			}
-			if s == half { // 提前返回
-				return true
 			}
 		}
 

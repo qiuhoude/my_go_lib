@@ -46,7 +46,7 @@ import (
 
 // 动态规划思路
 func coinCharge(coins []int, amount int) int {
-	dp := make([]int, amount+1) //dp存储的是 在某个金额个数的最小值
+	/*dp := make([]int, amount+1) //dp存储的是 在某个金额个数的最小值
 	dp[0] = 0
 	for i := 1; i <= amount; i++ {
 		min := math.MaxInt32
@@ -62,6 +62,29 @@ func coinCharge(coins []int, amount int) int {
 		} else {
 			dp[i] = min
 		}
+	}*/
+
+	dp := make([]int, amount+1) // 到该金额最小组成的最小值
+	for i := range dp {
+		dp[i] = math.MaxInt32
+	}
+	min := func(a, b int) int {
+		if a < b {
+			return a
+		}
+		return b
+	}
+	dp[0] = 0
+	for _, coin := range coins {
+		for i := 1; i <= amount; i++ {
+			if i-coin >= 0 {
+				// 选择i：金币个数+1,  不选择i
+				dp[i] = min(dp[i-coin]+1, dp[i])
+			}
+		}
+	}
+	if dp[amount] == math.MaxInt32 {
+		return -1
 	}
 	return dp[amount]
 }
