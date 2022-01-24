@@ -40,7 +40,7 @@ import (
 	min(for(f(amount-coins[i]))  // 每次都尝试每种币的金额,只要有解进行最小值比较
 
 动态规划思路
-
+dp[i] = min(dp[i-coin]+1, dp[i]) 当 i-coin >= 0
 
 */
 

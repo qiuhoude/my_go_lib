@@ -97,6 +97,46 @@ O(nlogn) 10^7
 动态规划和递归回溯是我觉得在学习算法中感觉最难的部分,特别是动态规划
 解题心路历程, 自顶向下思考(有重复子问题加上最优子结构,递归回溯+记忆化搜索),然后转成自底向上的思考(动态规划),列出递推公式求解
 
+#### 动态规划的背包问题总结
+*背包问题的分类*
+##### 0-1背包问题 每个元素最多选取一次
+- [494. 目标和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/target-sum_test.go) 
+- [416. 分割等和子集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/partition-equal-subset-sum_test.go)
+- [1049. 最后一块石头的重量 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/last-stone-weight-ii_test.go)
+
+循环结构:
+外循环nums,内循环target
+
+##### 多维背包问题 0-1背包问题的多个条件
+- [474. 一和零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/ones-and-zeroes_test.go)
+循环结构:
+外循环nums,内循环target
+
+##### 完全背包问题 每个元素可以重复选择
+- [322. 硬币问题](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change_test.go)
+- [518. 零钱兑换 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change-2.go)
+- [279. 完全平方数](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/perfect-squares_test.go)
+- [377. 组合总和 Ⅳ](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
+循环结构:
+不考虑顺序 外循环nums,内循环target 
+考虑顺序 外循环target,内循环nums
+
+##### 组合背包问题 背包中的物品要考虑顺序
+- [377. 组合总和 Ⅳ](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
+循环结构:
+考虑顺序 外循环target,内循环nums
+
+##### 分组背包问题 不止一个背包需要遍历每个背包
+- [1155. 掷骰子的N种方法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/number-of-dice-rolls-with-target-sum_test.go)
+循环结构:
+最外层每个背包,内层其他背包的循环
+
+#### 问题分类
+
+- 最值 `dp[i] = max/min(dp[i], dp[i-nums]+1)或dp[i] = max/min(dp[i], dp[i-num]+nums)`
+- 是否存在 `dp[i]=dp[i]||dp[i-num]`
+- 排列组合 `dp[i]+=dp[i-num]`
+ 
 
 ### leetcode 
 解题思路都在注释中
@@ -218,8 +258,8 @@ O(nlogn) 10^7
 - [347. 前 K 个高频元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/top-k-frequent-elements_test.go)
 - [349. 两个数组的交集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays_test.go)
 - [350. 两个数组的交集 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays-ii_test.go)
-- [376. 摆动序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays-ii_test.go)
-- [377. 组合总和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/wiggle-subsequence_test.go)
+- [376. 摆动序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/wiggle-subsequence_test.go)
+- [377. 组合总和 Ⅳ](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
 - [384. 打乱数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/shuffle-an-array_test.go)
 - [401. 二进制手表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-watch_test.go)
 - [404. 左叶子之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sum-of-left-leaves_test.go)
