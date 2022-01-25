@@ -100,36 +100,40 @@ O(nlogn) 10^7
 #### 动态规划的背包问题总结
 *背包问题的分类*
 ##### 0-1背包问题 每个元素最多选取一次
+循环结构:  
+外循环nums,内循环target  
 - [494. 目标和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/target-sum_test.go) 
 - [416. 分割等和子集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/partition-equal-subset-sum_test.go)
 - [1049. 最后一块石头的重量 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/last-stone-weight-ii_test.go)
 
-循环结构:
-外循环nums,内循环target
-
 ##### 多维背包问题 0-1背包问题的多个条件
-- [474. 一和零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/ones-and-zeroes_test.go)
-循环结构:
+循环结构:  
 外循环nums,内循环target
+- [474. 一和零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/ones-and-zeroes_test.go)
+- [879. 盈利计划](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/profitable-schemes_test.go)
+
 
 ##### 完全背包问题 每个元素可以重复选择
+循环结构:  
+不考虑顺序 外循环nums,内循环target   
+考虑顺序 外循环target,内循环nums  
 - [322. 硬币问题](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change_test.go)
 - [518. 零钱兑换 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change-2.go)
 - [279. 完全平方数](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/perfect-squares_test.go)
 - [377. 组合总和 Ⅳ](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
-循环结构:
-不考虑顺序 外循环nums,内循环target 
-考虑顺序 外循环target,内循环nums
+
 
 ##### 组合背包问题 背包中的物品要考虑顺序
+循环结构:  
+考虑顺序 外循环target,内循环nums  
 - [377. 组合总和 Ⅳ](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-iv_test.go)
-循环结构:
-考虑顺序 外循环target,内循环nums
+
 
 ##### 分组背包问题 不止一个背包需要遍历每个背包
+循环结构:  
+最外层每个背包,内层其他背包的循环  
 - [1155. 掷骰子的N种方法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/number-of-dice-rolls-with-target-sum_test.go)
-循环结构:
-最外层每个背包,内层其他背包的循环
+
 
 #### 问题分类
 
@@ -279,6 +283,7 @@ O(nlogn) 10^7
 - [494. 目标和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/target-sum_test.go)
 - [518. 零钱兑换 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/coin-change-2.go)
 - [733. 图像渲染](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/flood-fill_test.go)
+- [879. 盈利计划](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/profitable-schemes_test.go)
 - [1049. 最后一块石头的重量 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/last-stone-weight-ii_test.go)
 - [1143. 最长公共子序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/longest-common-subsequence_test.go)
 - [1155. 掷骰子的N种方法](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/number-of-dice-rolls-with-target-sum_test.go)
