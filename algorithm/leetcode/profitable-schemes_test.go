@@ -27,18 +27,59 @@ profit.length == group.length
 0 <= profit[i] <= 100
 
 思路:
+转换成 求解 在group选择子集 G, 在profit中选择子集 P, 条件是 sum(G)<=n && sum(P)>=minProfit,有多少种方案
 将问题转换成多维背包问题
 group 和 profit 就是背包的物品,
 两个条件限制: 人数 n, 最至少利润 minProfit
-dp[i][j][k] i表示任务编号,j表示人数, 利润k,存储的是满足条件至少利润为k方案数总数
 
-初始化
-不满足条件
+定义 dp[i][j][k] 表示前i种工作,j表示人数,利润k, 存储利润等于k计算数量
+选择i
+dp[i][j][k] = dp[i-1][j][k] + dp[i-1][j-group[i-1]][k-profit[i-1]] (j-group[i-1]>=0 && k-profit[i-1]>=0)
+不选择
+dp[i][j][k] = dp[i-1][j][k]
+最后求解 minProfit~sumProfit方案的总和
+sum(dp[i][j][minProfit~sumProfit])
+
+
+优化思路2:
+dp[i][j][k] 表示前i种工作,j表示人数, 利润k,存储的是满足条件至少利润为k方案数总数
+不满足条件时:
 dp[i][j][k] = dp[i-1][j][k]
 满足条件, 其中k-profit[i]<=0表示利润至少为k,所以0表示利润至少为k
-dp[i][j][k]  =  dp[i-1][j][k] + dp[i-1][j-group[i]][max(0,k-profit[i])]
+dp[i][j][k]  =  dp[i-1][j][k] + dp[i-1][j-group[i-1]][max(0,k-profit[i-1])]
 
 */
+
+func profitableSchemes0(n int, minProfit int, group []int, profit []int) int {
+	const mod = 1e9 + 7
+	sumProfit := 0
+	for _, v := range profit {
+		sumProfit += v
+	}
+	dp := make([][]int, n+1)
+	for i := range dp {
+		dp[i] = make([]int, sumProfit+1)
+		dp[i][0] = 1 //  利润为0时,方案数量时1 ,不选任何工作
+	}
+
+	size := len(group)
+	for i := 1; i <= size; i++ {
+		// 人数条件和利润
+		m, p := group[i-1], profit[i-1]
+		for j := n; j >= m; j-- {
+			for k := p; k <= sumProfit; k++ {
+				dp[j][k] += dp[j-m][k-p] % mod //选择i
+			}
+		}
+	}
+	//最后求解 minProfit~sumProfit方案的总和
+	ans := 0
+	for i := minProfit; i <= sumProfit; i++ {
+		ans = (ans + dp[n][i]) % mod
+	}
+
+	return ans
+}
 
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 	const mod = 1e9 + 7
@@ -56,7 +97,7 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
 			dp[i][j] = make([]int, minProfit+1)
 		}
 	}
-	for j := 0; j <= n; j++ {
+	for j := 0; j <= n; j++ { //  利润为0时,方案数量时1 ,不选任何工作
 		dp[0][j][0] = 1
 	}
 	for i := 1; i <= size; i++ {
