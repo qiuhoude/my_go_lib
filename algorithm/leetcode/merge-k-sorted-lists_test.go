@@ -1,7 +1,5 @@
 package leetcode
 
-import "testing"
-
 // 23. 合并K个升序链表 https://leetcode-cn.com/problems/merge-k-sorted-lists/
 
 /*
@@ -98,6 +96,6 @@ func merge2List(l1, l2 *ListNode) *ListNode {
 	return dummyHead.Next
 }
 
-func Test_mergeKLists(t *testing.T) {
-
-}
+//func Test_mergeKLists(t *testing.T) {
+//
+//}
