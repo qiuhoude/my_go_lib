@@ -143,12 +143,46 @@ O(nlogn) 10^7
  
 
 ### leetcode 
-解题思路都在注释中
+所有的解题思路都在注释中
+
+#### array相关解题
+##### 分区思想（Two pointers）
+
+###### i,j 同向
+```
+┌─────────────────┬─────────────────┬─────────────────┐
+│   processed     │    not needed   │      unknown    │
+└─────────────────┴─────────────────┴─────────────────┘
+0                 i                 j                 n
+──────────────────────────────────────────────────────►
+```
+[0,i) 已经处理的数据, [i,j) 还没处理的数据 [j,n)
+- [27. 移除元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-element_test.go)
+- [26. 删除有序数组中的重复项](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array_test.go)
+- [80. 删除有序数组中的重复项 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array-ii_test.go)
+- [283. 移动零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/move-zeroes_test.go)
+
+###### i,j反向 (对撞指针)
+```
+┌──────────────────┬────────────────┬─────────────────┐
+│  processed       │   unknown      │   processed     │
+└──────────────────┴────────────────┴─────────────────┘
+0                  i                j                 n
+             ─────────►         ◄─────────                  
+```
+[0,i) [j,n) 已经处理  
+- [11. 盛最多水的容器](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/container-with-most-water_test.go)
+- [42. 接雨水](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/trapping-rain-water_test.go)
+- [125. 验证回文串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/valid-palindrome_test.go)
+- [167. 两数之和 II - 输入有序数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum-ii-input-array-is-sorted_test.go)
+- [344. 反转字符串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-string_test.go)
+- [345. 反转字符串中的元音字母](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-vowels-of-a-string_test.go)
+
+---
 
 - [1. 两数之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum_test.go)
 - [2. 两数相加](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/add-two-numbers_test.go)
 - [3. 无重复字符的最长子串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/longest-substring-without-repeating-characters_test.go)
-- [11. 盛最多水的容器](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/container-with-most-water_test.go)
 - [15. 三数之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/3sum_test.go)
 - [16. 最接近的三数之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/3sum-closest_test.go)
 - [17. 电话号码的字母组合](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/letter-combinations-of-a-phone-number_test.go)
@@ -159,8 +193,6 @@ O(nlogn) 10^7
 - [23. 合并K个升序链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/merge-k-sorted-lists_test.go)
 - [24. 两两交换链表中的节点](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/swap-nodes-in-pairs_test.go)
 - [25. K 个一组翻转链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-nodes-in-k-group_test.go)
-- [26. 删除有序数组中的重复项](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array_test.go)
-- [27. 移除元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-element_test.go)
 - [37. 解数独](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sudoku-solver_test.go)
 - [39. 组合总和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum_test.go)
 - [40. 组合总和 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combination-sum-ii_test.go)
@@ -183,7 +215,6 @@ O(nlogn) 10^7
 - [77. 组合](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/combinations.go)
 - [78. 子集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/subsets_test.go)
 - [79. 单词搜索](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-search_test.go)
-- [80. 删除有序数组中的重复项 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array-ii_test.go)
 - [82. 删除排序链表中的重复元素 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-list-ii_test.go)
 - [83. 删除排序链表中的重复元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-list_test.go)
 - [86. 分隔链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/partition-list_test.go)
@@ -209,7 +240,6 @@ O(nlogn) 10^7
 - [121. 买卖股票的最佳时机](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/best-time-to-buy-and-sell-stock_test.go)
 - [122. 买卖股票的最佳时机 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/best-time-to-buy-and-sell-stock-ii_test.go)
 - [123. 买卖股票的最佳时机 III](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/best-time-to-buy-and-sell-stock-iii_test.go)
-- [125. 验证回文串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/valid-palindrome_test.go)
 - [126. 单词接龙 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-ladder-ii_test.go)
 - [127. 单词接龙](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-ladder_test.go)
 - [129. 求根节点到叶节点数字之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sum-root-to-leaf-numbers_test.go)
@@ -224,7 +254,6 @@ O(nlogn) 10^7
 - [148. 排序链表](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/sort-list_test.go)
 - [149. 直线上最多的点数](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/max-points-on-a-line_test.go)
 - [150. 逆波兰表达式求值](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/evaluate-reverse-polish-notation_test.go)
-- [167. 两数之和 II - 输入有序数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum-ii-input-array-is-sorted_test.go)
 - [169. 多数元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/majority-element_test.go)
 - [198. 打家劫舍](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/house-robber_test.go)
 - [199. 二叉树的右视图](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-tree-right-side-view_test.go)
@@ -252,7 +281,6 @@ O(nlogn) 10^7
 - [242. 有效的字母异位词](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/valid-anagram_test.go)
 - [257. 二叉树的所有路径](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/binary-tree-paths_test.go)
 - [279. 完全平方数](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/perfect-squares_test.go)
-- [283. 移动零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/move-zeroes_test.go)
 - [290. 单词规律](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/word-pattern_test.go)
 - [297 二叉树的序列化与反序列化](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/serialize-and-deserialize-binary-tree_test.go)
 - [300. 最长上升子序列](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/longest-increasing-subsequence_test.go)
@@ -263,8 +291,6 @@ O(nlogn) 10^7
 - [337. 打家劫舍 III](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/house-robber-iii_test.go)
 - [341. 扁平化嵌套列表迭代器](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/flatten-nested-list-iterator_test.go)
 - [343. 整数拆分](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/integer-break_test.go)
-- [344. 反转字符串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-string_test.go)
-- [345. 反转字符串中的元音字母](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-vowels-of-a-string_test.go)
 - [347. 前 K 个高频元素](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/top-k-frequent-elements_test.go)
 - [349. 两个数组的交集](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays_test.go)
 - [350. 两个数组的交集 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/intersection-of-two-arrays-ii_test.go)
