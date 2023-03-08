@@ -36,6 +36,9 @@ func TestBSearch2(t *testing.T) {
 	fg3 := BSearchFirstGVal(arr, 8) // 查找第一个大于给定值的元素
 	assert.Equal(t, 9, fg3)
 
+	fg4 := BSearchFirstGVal(arr, 0) // 查找第一个大于给定值的元素
+	assert.Equal(t, 0, fg4)
+
 	lle := BSearchLastLeVal(arr, 8) // 查找最后一个小于等于给定值的元素
 	assert.Equal(t, 8, lle)
 

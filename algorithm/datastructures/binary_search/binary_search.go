@@ -204,13 +204,17 @@ func BSearchFirstGVal(arr []int, val int) int {
 	high := n - 1
 	for low <= high {
 		mid := low + ((high - low) >> 1)
-		if arr[mid] > val {
-			high = mid - 1
+		if arr[mid] > val { // 大于目标值
+			if mid == 0 || arr[mid-1] <= val { //mid==0说明是第一个大于目标值， 前面一个小于等于目标值也说明是第一个大于的目标值
+				return mid
+			} else {
+				high = mid - 1
+			}
 		} else {
 			low = mid + 1
 		}
 	}
-	return low
+	return -1
 }
 
 /*
