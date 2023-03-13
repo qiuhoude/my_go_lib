@@ -43,7 +43,7 @@ func (this *LinkedList) Len() uint {
 	return this.length
 }
 
-//在某个节点后面插入节点
+// 在某个节点后面插入节点
 func (this *LinkedList) InsertAfter(p *ListNode, v interface{}) bool {
 	if p == nil {
 		return false
@@ -61,7 +61,7 @@ func (this *LinkedList) InsertAfter(p *ListNode, v interface{}) bool {
 	return true
 }
 
-//在某个节点前面插入节点
+// 在某个节点前面插入节点
 func (this *LinkedList) InsertBefore(p *ListNode, v interface{}) bool {
 	if p == nil || p == this.head {
 		return false
@@ -104,12 +104,12 @@ func (this *LinkedList) Reverse() {
 	this.head.next = pre
 }
 
-//在链表头部插入节点
+// 在链表头部插入节点
 func (this *LinkedList) InsertToHead(v interface{}) bool {
 	return this.InsertAfter(this.head, v)
 }
 
-//在链表尾部插入节点
+// 在链表尾部插入节点
 func (this *LinkedList) InsertToTail(v interface{}) bool {
 	cur := this.head
 	for ; cur.next != nil; cur = cur.next {
@@ -117,7 +117,7 @@ func (this *LinkedList) InsertToTail(v interface{}) bool {
 	return this.InsertAfter(cur, v)
 }
 
-//通过索引查找节点
+// 通过索引查找节点
 func (this *LinkedList) FindByIndex(index uint) *ListNode {
 	if index >= this.length {
 		return nil

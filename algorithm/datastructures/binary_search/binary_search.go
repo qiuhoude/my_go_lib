@@ -11,7 +11,6 @@ import "math"
 时间复杂度
 2^k = n 第 k次可以找到该元素
 k = log2n 所以 O(logn)
-
 */
 func BSearch(arr []int, val int) int {
 	n := len(arr)

@@ -161,7 +161,7 @@ O(nlogn) 10^7
 - [26. 删除有序数组中的重复项](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array_test.go)
 - [80. 删除有序数组中的重复项 II](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-duplicates-from-sorted-array-ii_test.go)
 - [283. 移动零](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/move-zeroes_test.go)
-
+- [1047. 删除字符串中的所有相邻重复项](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/remove-all-adjacent-duplicates-in-string_test.go)
 ###### i,j反向 (对撞指针)
 ```
 ┌──────────────────┬────────────────┬─────────────────┐
@@ -177,8 +177,15 @@ O(nlogn) 10^7
 - [167. 两数之和 II - 输入有序数组](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum-ii-input-array-is-sorted_test.go)
 - [344. 反转字符串](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-string_test.go)
 - [345. 反转字符串中的元音字母](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/reverse-vowels-of-a-string_test.go)
-
 ---
+
+#### 二分搜索
+1. 每次都要进区域的缩减 (避免死循环)
+2. 每次缩减都不能把答案排除 (查找模糊值使用，比如,第一个大于某个值)
+
+- [410. 分割数组的最大值](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/split-array-largest-sum_test.go)
+- [852. 山脉数组的峰顶索引](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/peak-index-in-a-mountain-array_test.go)
+
 
 - [1. 两数之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum_test.go)
 - [2. 两数相加](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/add-two-numbers_test.go)
