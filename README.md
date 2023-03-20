@@ -185,6 +185,7 @@ O(nlogn) 10^7
 
 - [410. 分割数组的最大值](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/split-array-largest-sum_test.go)
 - [852. 山脉数组的峰顶索引](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/peak-index-in-a-mountain-array_test.go)
+- [1292. 元素和小于等于阈值的正方形的最大边长](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold_test.go)
 
 
 - [1. 两数之和](https://github.com/qiuhoude/my_go_lib/blob/main/algorithm/leetcode/two-sum_test.go)
